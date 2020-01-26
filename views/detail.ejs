@@ -1,0 +1,281 @@
+<% include ../partials/header %>
+<title><%=data[0]["name"]%> - <%=data[0]["original_symbol"]%></title>
+<div class="container">
+  <div class="row row-flex">
+
+    <div class="col-lg-8">
+      <div class="panel panel-info">
+        <div class="panel-heading panel_1" style="background-color: #32064A; color:white">
+
+          <img src="<%=data[0]["logo_url"]%>" class="img-circle" id="icon_logo" width="70" height=70"> 
+
+          <div id="name_crypto"><%=data[0]["name"]%></div>
+         
+          <div id="short_name_crypto">
+            <p><%=data[0]["original_symbol"]%></p>
+          </div>
+
+
+          <div id="info_icon_url"><%= __('Further Information')%></div>
+
+          <div id="icon_url">
+          <a href="<%=data[0]["website_url"]%>">
+            <img src="https://img.icons8.com/dusk/64/000000/internet.png" width="50" height=50" data-tooltip title="Homepage">   
+          </a>
+        
+          <a href="<%=data[0]["reddit_url"]%>">
+            <img src="https://img.icons8.com/office/80/000000/reddit.png" width="50" height=50"  data-tooltip title="Reddit">
+          </a>
+
+
+          <a href="<%=data[0]["whitepaper_url"]%>">
+            <img src="https://img.icons8.com/color/96/000000/document.png" width="50" height=50" data-tooltip title="White Paper">
+          </a>
+          </div>
+
+        </div>
+          <div class="panel-body crypto_info expandable">
+            <P id="titel_description"><%= __('Token Summary')%></p>
+            <p><%=data[0]["description"]%></p>
+          </div>
+        </div>
+      </div>
+
+    <div class="col-sm-12 col-lg-4">
+      <div class="panel panel-warning">
+        <div class="panel-heading" style="color:white; background-color:#E56B1F; border-color:#E56B1F";
+          border-radius:unset>
+          <div id="detailedInformation"><%= __('Detailed information')%></div>
+          <!--<a href="#" class="btn btn-primary  btn_interval" >Day</a>
+          <a href="#" class="btn btn-primary  btn_interval" >Week</a>
+          <a href="#" class="btn btn-primary  btn_interval" >Month</a>
+          <a href="#" class="btn btn-primary  btn_interval" >Year</a>
+          <a href="#" class="btn btn-primary  btn_interval" >YTD</a> -->
+        </div>
+          <div class="panel-body">
+
+            <div id="rankPart">
+              <span><%= __('Rank')%></span>
+              <span class="floatRight"> <%=data2[0]["rank"]%> </span>
+            </div>
+            <div id="pricePart">
+              <div id="pricePart1">
+                <span><%= __('Current Price')%></span>
+                <%if ('1d' in data2[0] ){%> 
+                  <%if (parseFloat(data2[0]["1d"]["price_change_pct"]) < 0 ){%>
+                    <span class="floatRight" id="price_change_pct" style="color:red"> 
+                      <%=numeral(parseFloat(data2[0]["1d"]["price_change_pct"])).format('0.00%')%> &#8595;
+                    </span>
+                  <%}else{%>
+                    <span class="floatRight" id="price_change_pct" style="color:#48C223"> 
+                      <%=numeral(parseFloat(data2[0]["1d"]["price_change_pct"])).format('0.00%')%> &#8593;
+                    </span>
+                  <% } %>
+                <%}%>
+                <span class="floatRight"> <%=numeral(parseFloat(data2[0]["price"])).format('$0,0.00')%> </span>
+
+              </div>
+              <div id="pricePart2">
+                <span><%= __('Date of the price')%></span>
+                <span class="floatRight"> <%=moment(data2[0]["price_date"]).format("DD/MM/YYYY")%> </span>
+              </div>           
+            </div>
+
+            <div id="highestPricePart">
+              <div id="highesPricePart1">
+                <span><%= __('All time high price')%></span>
+                <span class="floatRight"> <%=numeral(parseFloat(data2[0]["high"])).format('$0,0.00')%> </span>
+              </div>
+              <div id="highesPricePart2">
+                <span><%= __('Date of the all time high')%></span>
+                <span class="floatRight"> <%=moment(data2[0]["high_timestamp"]).format("DD/MM/YYYY")%> </span>
+              </div>
+            </div>
+
+
+
+            <div id="supplyPart">
+              <div id="supplyPart1">
+                <span><%= __('Circulating Supply')%></span>
+                <span class="floatRight"> <%=numeral(parseFloat(data2[0]["circulating_supply"])).format('0,0')%> </span>
+              </div>
+
+              <%if ('max_supply' in data2[0] ){%> 
+              <div id="supplyPart2">
+                <span><%= __('Max Supply')%></span>
+                <span class="floatRight"> <%=numeral(parseFloat(data2[0]["max_supply"])).format('0,0')%> </span>
+              </div>
+              <%}%>
+
+            </div>
+
+
+            <div id="marketcapPart">
+              <span><%= __('Market Cap')%></span>
+              <%if ('1d' in data2[0] ){%>
+                <%if (parseFloat(data2[0]["1d"]["market_cap_change_pct"]) < 0 ){%>
+                  <span class="floatRight" id="market_cap_change_pct" style="color:red">
+                    <%=numeral(parseFloat(data2[0]["1d"]["market_cap_change_pct"])).format('0.00%')%> &#8595;
+                  </span>
+                <%}else{%>
+                  <span class="floatRight" id="market_cap_change_pct" style="color:#48C223">
+                    <%=numeral(parseFloat(data2[0]["1d"]["market_cap_change_pct"])).format('0.00%')%> &#8593;
+                  </span>
+                <% } %>
+              <%}%>
+              <span class="floatRight"> <%=numeral(parseFloat(data2[0]["market_cap"])).format('$0,0.00')%> </span>
+            </div>
+
+            <%if ('1d' in data2[0]){%>
+            <div id="volumePart">
+              <span><%= __('Volume')%></span>
+              <%if (parseFloat(data2[0]["1d"]["volume_change_pct"]) < 0 ){%>
+                <span class="floatRight" id="volume_change_pct" style="color:red">
+                  <%=numeral(parseFloat(data2[0]["1d"]["volume_change_pct"])).format('0.00%')%> &#8595;
+                </span>
+              <%}else{%>
+                <span class="floatRight" id="volume_change_pct" style="color:#48C223">
+                  <%=numeral(parseFloat(data2[0]["1d"]["volume_change_pct"])).format('0.00%')%> &#8593;
+                </span>
+              <% } %>
+              <span class="floatRight"> <%=numeral(parseFloat(data2[0]["1d"]["volume"])).format('$0,0.00')%> </span>
+            </div>
+            <%}%>
+
+            <div id="creditPart">
+              <a href="https://nomics.com/" id="source"  style="text-decoration: underline"> Crypto Market Cap & Pricing Data Provided By Nomics.</a>
+            </div>
+
+
+
+           
+          </div>
+        </div>
+      </div>
+  </div>
+
+
+
+
+
+  <div class="row row-flex">
+    <div class=" col-sm-12 col-lg-8">
+      <div class="panel panel-info">
+        <div class="panel-heading" style="color:white; background-color:#E42c6a; border-color:#E42c6a"><%= __('Price in 24H')%></div>
+          <div class="panel-body">
+            <canvas id="myChartPrice"></canvas>
+            <a href="https://nomics.com/" id="top_source" style="text-decoration: underline"> Crypto Market Cap & Pricing Data Provided By Nomics.</a>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+      <div class="col-lg-4">
+
+        <%if ('max_supply' in data2[0] ){%>
+        <div class="panel panel-info">
+            <div class="panel-heading" style="color:white; background-color:#E42c6a; border-color:#E42c6a"> 
+              <div><%= __('Circulating Supply vs Max Supply')%></div>
+              <div><%=numeral((parseFloat(data2[0]["circulating_supply"])/parseFloat(data2[0]["max_supply"]))).format('0.000%')%></div>
+            </div>
+            <div class="panel-body">
+              <canvas id="CirculationChart"></canvas>
+              <a href="https://nomics.com/" id="top_source" style="text-decoration: underline"> Crypto Market Cap & Pricing Data Provided By Nomics.</a>
+            </div>
+          </div>
+        <%}%>
+
+        <div class="panel panel-info">
+          <div class="panel-heading" style="color:white; background-color:#E42c6a; border-color:#E42c6a"><%= __('CirculatingCurrent Price vs AHT Price')%></div>
+          <div class="panel-body">
+            <canvas id="PriceChart"></canvas>
+            <a href="https://nomics.com/" id="top_source" style="text-decoration: underline"> Crypto Market Cap & Pricing Data Provided By Nomics.</a>
+          </div>
+        </div>
+
+
+      </div>
+
+      
+          
+            
+       
+
+
+
+
+
+</div>
+<script>
+window.addEventListener('load', function (){
+    var ctx = document.getElementById('myChartPrice').getContext('2d');
+    var chart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: <%- JSON.stringify(timestampArray); %>,
+        datasets: [{
+            label: 'Price',
+            
+            backgroundColor: 'rgb(252, 208, 44)',
+            borderColor: 'rgb(50, 6, 74)',
+            data: <%- JSON.stringify(priceArray); %>
+        }]
+    },
+    });
+
+      var ctx2 = document.getElementById('PriceChart').getContext('2d');
+      var myPieChart1 = new Chart(ctx2, {
+      type: 'pie',
+      data: {
+
+        datasets: [{
+            data: [<%=parseFloat(data2[0]["price"])%>,<%=parseFloat(data2[0]["high"])%>],
+            backgroundColor:['rgb(252, 208, 44)','rgb(50, 6, 74)']
+        }],
+        labels:[
+          'Current Price'
+          
+        ]
+      },
+
+      });
+
+
+          var ctx1 = document.getElementById('CirculationChart').getContext('2d');
+      var myPieChart = new Chart(ctx1, {
+      type: 'pie',
+      data: {
+
+        datasets: [{
+            data: [<%=parseFloat(data2[0]["max_supply"])%>-<%=parseFloat(data2[0]["circulating_supply"])%>,<%=parseFloat(data2[0]["circulating_supply"])%>],
+            backgroundColor:['rgb(252, 208, 44)','rgb(50, 6, 74)']
+        }],
+        labels:[
+          'The Rest',
+          'Circulating Supply'
+        ]
+      },
+
+      });
+
+    
+
+
+
+
+
+
+})
+</script>
+<script type="text/javascript" src="/js/expander.js"></script>
+<script type="text/javascript" src="/js/readmore.js"></script>

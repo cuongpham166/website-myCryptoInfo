@@ -1,0 +1,49 @@
+.floatRight{
+	float: right;
+}
+
+span#price_change_pct{
+	margin-left: 10px;
+}
+
+span#volume_change_pct{
+	margin-left: 10px;
+}
+
+span#market_cap_change_pct{
+	margin-left: 10px;
+}
+
+div#rankPart{
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+
+div#pricePart{
+	margin-bottom: 20px;
+}
+
+div#highestPricePart{
+	margin-bottom: 20px;
+}
+
+div#supplyPart{
+	margin-bottom: 20px;
+}
+
+div#marketcapPart{
+	margin-bottom: 20px;
+}
+
+div#volumePart{
+	margin-bottom: 20px;
+}
+
+div#detailedInformation{
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+
+a#top_source{
+	font-size: 80%;
+}

@@ -1,0 +1,20 @@
+table{
+	background-color: white;
+	border-radius: 5px;
+}
+
+td{
+	height: 90px;
+	text-align: center;
+}
+
+th{
+	background-color: #E42c6a;
+	color:white;
+	font-weight: unset;
+	text-align: center;
+}
+
+.table>thead>tr>th{
+	border-bottom: 0;
+}

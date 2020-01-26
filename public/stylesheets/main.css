@@ -1,0 +1,124 @@
+body{
+	background-color: #E6E6E6;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.navbar-inverse .navbar-nav>li>a{
+	color:white;
+}
+
+.navbar-inverse .navbar-brand {
+	color:white;
+}
+
+.navbar-inverse {
+	background-color: #261A26;
+	color:white;
+	border-radius: 0;
+	border-color:#261A26;
+}
+
+.jumbotron {
+	margin-top: -25px;
+	background-color: #805780;
+	text-align: center;
+	color:white;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+#market-cap_value{
+	float:right;
+}
+
+.row-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.panel-body1 {
+    height: 100%;    
+    overflow: hidden;
+}
+
+.percent_supply{
+	text-align: center;
+}
+
+#source{
+	color:red;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size:80%;
+}
+
+
+#tooltip {
+	position:absolute;
+	background:#101010;
+	color:#ffffff;
+	padding:8px;
+	border-radius: 5px;
+}
+
+.container-fluid{
+   padding: 0 20px !important;
+}
+
+.panel-heading{
+	text-align: center;
+}
+
+canvas#myChart{
+	height: 100%;
+	width: 100%;
+}
+
+.panel-primary>.panel-heading{
+	display: grid;
+}
+
+.panel{
+	border:none;
+}
+
+.list-group-item{
+	border:none;
+	display: flow-root;
+}
+
+span#top_name{
+	float:left;
+}
+
+span#top_market{
+	float: right;
+}
+
+#top_source{
+	text-transform: uppercase;
+	color: red;
+	font-weight: bold;
+}
+
+select#mySelect{
+	width: 20%;
+}
+
+.btn_interval{
+	color:white; 
+	background-color:#32064A;
+	border:0;
+	border-radius: unset;
+}
+
+div#date_range{
+	margin-bottom: 10px;
+	font-size: 18px;
+}
+
+.panel-primary{
+	border-radius: unset;
+}
+
+

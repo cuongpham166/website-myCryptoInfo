@@ -1,0 +1,142 @@
+<% include ../partials/header %>
+<title>MyCryptoInfo - Currencies</title>
+
+
+<div class="jumbotron">
+  <h3><%= __('The total currency market cap') %>:</h3> 
+  <h4> <%=numeral(parseFloat(lastestMarketCapData)).format('$0,0.00')%> </h4>
+  <h6>Last update: <%=moment(lastestUpdateDate).format('MMMM Do YYYY, h:mm:ss a')%></h6>
+</div>
+
+<div class="container">
+	<div class="panel panel-warning">
+		<div class="panel-heading"  style="color:black; background-color:#FCD02C; border-color:#FCD02C;
+			border-radius:unset">
+			<div id="date_range"><%= __('Date Range') %></div>
+			<a href="/crypto?interval=1d" class="btn btn-primary  btn_interval" ><%= __('Day') %></a>
+			<a href="/crypto?interval=7d" class="btn btn-primary  btn_interval" ><%= __('Week') %></a>
+			<a href="/crypto?interval=30d" class="btn btn-primary  btn_interval" ><%= __('Month') %></a>
+			<a href="/crypto?interval=365d" class="btn btn-primary  btn_interval" ><%= __('Year') %></a>
+			<a href="/crypto?interval=ytd" class="btn btn-primary  btn_interval" ><%= __('YTD') %></a>	
+			
+		</div>
+	</div>
+	<div class="row row-flex">
+		<div class="col-xs-12 col-sm-7 col-md-8 col-lg-9" id="chart">
+			<div class="panel panel-primary" >
+	      		<div class="panel-heading" style="color:white; background-color:#32064A; border-color:#32064A;
+					border-radius:unset"><p><%= __('Market Cap in 24H') %></p></div>
+	      		<div class="panel-body panel-body1">
+	      			<canvas id="myChart"></canvas>
+	      			<a href="https://nomics.com/" id="top_source" style="text-decoration: underline"> Crypto Market Cap & Pricing Data Provided By Nomics.</a>
+	      		</div>
+	    	</div>
+		</div>
+		
+		<div class=" col-xs-12 col-sm-5 col-md-4 col-lg-3" id="global">
+			<div class="panel panel-danger" >
+		      	<div class="panel-heading" style="color:white; background-color:#E56B1F; border-color:#E56B1F";
+					border-radius:unset><%= __('Top 10 Cryptos by Market Cap') %></div>
+		      	<div class="panel-body panel-body1">
+			      	<ul class="list-group">
+			      	<% for(var i=0; i<10;i++){ %>
+						<li class="list-group-item">
+							<span id="top_name"><a href="crypto/info/<%=data[i]["currency"]%>" style="color:#E42c6a"><%=data[i]["currency"]%></a></span>
+							<span id="top_market"><%=numeral(parseFloat(data[i]["market_cap"])).format('$0,0.00')%></span>
+						</li>
+					<%}%>
+					</ul>
+					<a href="https://nomics.com/" id="top_source"> Crypto Market Cap & Pricing Data Provided By Nomics.</a>
+		      	</div>
+		    </div>
+		</div> 
+	</div>
+
+	<div class="form-group">
+	<label for="mySelect"><%= __('Number of results per page') %></label>
+	<select class="form-control" id="mySelect" onchange="myFunction()">
+	    <option value = "5" selected='selected'>5</option>
+	    <% for(var i=10; i < 41;i=i+5){ %>
+		<option value = <%=i%> > <%=i%> </option>
+		<%}%>  
+	</select>
+	</div>
+
+
+	<div id="page-nav"></div>
+	<div class="table-responsive">
+		<table class="table" id="myTable" role="table">
+		  	<thead class="black white-text" role="rowgroup">
+			    <tr role="row">
+				    <th scope="col-lg-1" role="columnheader">#</th>
+				    <th scope="col-lg-1" role="columnheader"><%= __('Name') %></th>
+				    <th scope="col-lg-2" role="columnheader"><%= __('Market Cap') %></th>
+				    <th scope="col-lg-2" role="columnheader"><%= __('Price') %></th>
+				    <th scope="col-lg-1" role="columnheader"><%= __('Change') %></th>
+				    <th scope="col-lg-2" role="columnheader"><%= __('Volume') %></th>
+				    <th scope="col-lg-3" role="columnheader"><%= __('Circulating Supply') %></th>
+			    </tr>
+		  	</thead>
+
+	  		<tbody role="rowgroup">
+	  			<% for(var i=0; i<data.length;i++){ %>
+	  			<tr class="paginate" role="row">
+			       	<td scope="row" role="cell"> <%=data[i]["rank"]%> </td>
+ 
+			      	<td role="cell"><a href="crypto/info/<%=data[i]["currency"]%>" style="color:#E42c6a"><%=data[i]["currency"]%></a></td>
+			      	<td role="cell"><%=numeral(parseFloat(data[i]["market_cap"])).format('$0,0.00')%></td>
+			      	<td role="cell"><%=numeral(parseFloat(data[i]["price"])).format('$0,0.00')%></td>
+
+			      	<%if (range in data[i] ){%> 
+			      	<td role="cell"><%=numeral(parseFloat(data[i][range]["price_change_pct"])).format('0.000%')%></td>
+			      	<td role="cell"><%=numeral(parseFloat(data[i][range]["volume"])).format('$0,0.00')%></td>
+			      	<%}else{%>
+			      	<td role="cell">Unknown</td>
+			      	<td role="cell">Unknown</td>
+			      	<% } %>
+
+			      	<td role="cell">
+			      	<span> <%=numeral(parseFloat(data[i]["circulating_supply"])).format('0,0')%> </span><span>&#x1F6C8;</span>
+
+			      		
+			      		<%if ('max_supply' in data[i] ){%> 
+			      			<div line-progressbar data-percentage=<%=(parseFloat(data[i]["circulating_supply"])/parseFloat(data[i]["max_supply"])*100) %> data-progress-color="#32064A" data-radius="15px"  data-height="15px">
+			      			</div>
+			      		<%}%>			      		
+			      	</td>
+
+			    </tr>
+	  			<%}%>
+	  			
+
+	    
+	  		</tbody>
+		</table>
+	</div>
+	<a href="https://nomics.com/" id="source" style="text-decoration: underline"> Crypto Market Cap & Pricing Data Provided By Nomics.</a>
+
+</div>
+
+<script>
+window.addEventListener('load', function (){
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var chart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: <%- JSON.stringify(labels); %>,
+        datasets: [{
+            label: 'MarketCap',
+            
+            backgroundColor: 'rgb(252, 208, 44)',
+            borderColor: 'rgb(50, 6, 74)',
+            data: <%- JSON.stringify(data2); %>
+        }]
+    },
+    });
+})
+</script>
+<script type="text/javascript" src="/js/table.js"></script>
+<script type="text/javascript" src="/js/jquery.lineProgressbar.js"></script>
+<script type="text/javascript" src="/js/jquery.simplePagination.js"></script>
+<script type="text/javascript" src="/js/pagination.js"></script>
+

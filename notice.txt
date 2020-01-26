@@ -1,0 +1,77 @@
+<div class="container">
+  <div class="row row-flex">
+
+    <div class="col-lg-8">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <img src="<%=data[0]["logo_url"]%>" class="img-circle" width="70" height=70"> 
+
+          <span id="name_crypto"><%=data[0]["name"]%></span>
+          <span id="info_icon_url">Further Information</span>
+
+          <div id="short_name_crypto">
+            <p><%=data[0]["original_symbol"]%></p>
+          </div>
+          
+          
+
+          <span id="icon_url">
+          <a href="<%=data[0]["website_url"]%>">
+            <img src="https://img.icons8.com/ios/100/000000/internet-filled.png" width="50" height=50" data-tooltip title="Homepage">
+              
+          </a>
+        
+          <a href="<%=data[0]["reddit_url"]%>">
+            <img src="https://img.icons8.com/ios/50/000000/reddit-filled.png" width="50" height=50"  data-tooltip title="Reddit">
+          </a>
+
+
+          <a href="<%=data[0]["whitepaper_url"]%>">
+            <img src="https://img.icons8.com/material/64/000000/file.png" width="50" height=50" data-tooltip title="White Paper">
+          </a>
+          </span>
+
+        </div>
+          <div class="panel-body crypto_info expandable">
+            <P id="titel_description">Token Summary</p>
+            <p><%=data[0]["description"]%></p>
+          </div>
+        </div>
+      </div>
+    <div class="col-lg-4">
+      <div class="panel panel-warning">
+        <div class="panel-heading">Panel Heading</div>
+          <div class="panel-body">Panel Content</div>
+        </div>
+      </div>
+  </div>
+
+
+
+
+
+  <div class="row row-flex">
+    <div class="col-lg-8">
+      <div class="panel panel-info">
+        <div class="panel-heading">Panel Heading</div>
+          <div class="panel-body">Panel Content</div>
+        </div>
+      </div>
+  </div>
+
+
+
+
+
+
+</div>
+
+
+<!--<%if ( data[i]["max_supply"] !== null ){%>-->
+
+
+<div class="percent_supply">
+                    (<%= numeral(
+                      (parseFloat(data[i]["circulating_supply"])) / (parseFloat(data[i]["max_supply"]))
+                    ).format('0.000%') %>)
+                  </div>

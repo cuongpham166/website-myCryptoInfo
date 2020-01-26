@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+            
+            <link rel="stylesheet" href="/stylesheets/table.css">
+            <link rel="stylesheet" href="/stylesheets/landing.css">         
+            <link rel="stylesheet" href="/stylesheets/main.css">
+            <link rel="stylesheet" href="/stylesheets/info.css">
+            <link rel="stylesheet" href="/stylesheets/simplePagination.css">
+            <link rel="stylesheet" href="/stylesheets/jquery.lineProgressbar.css">
+            <link rel="stylesheet" href="/stylesheets/table_responsive.css">
+             <link rel="stylesheet" href="/stylesheets/detail.css">
+            <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+            <script type="text/javascript" src="/js/expander.js"></script>
+            <script type="text/javascript" src="/js/Tooltip.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"></script>
+
+
+        </head>
+        
+
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/crypto">MyCrptoInfo</a>
+                </div>
+
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                
+
+                <div class="collapse navbar-collapse"  id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="/"><%= __('Homepage')%></a>
+                        </li>
+
+                        <li>
+                            <a href="/crypto"><%= __('Currency') %> </a>
+                        </li>
+
+                        <!--<li>
+                            <a href="#"><%= __('Exchange Rate') %> </a>
+                        </li>-->
+
+                        <!--<li>
+                            <a href="#"><%= __('Market') %></a>
+                        </li>-->
+
+                        <!--<li>
+                            <a href="#"><%= __('About me') %></a>
+                        </li>-->
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= __('Language') %><span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="/change-lang/en"><%= __('English') %><span>-EN</span><span class="flag-icon flag-icon-vn"></span></a>
+                                </li>
+
+                                <li role="separator" class="divider"></li>
+
+                                <li>
+                                    <a href="/change-lang/vi"><%= __('Vietnamese') %><span>-VI</span></a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>       
+            </div>
+        </nav>
+    </html>

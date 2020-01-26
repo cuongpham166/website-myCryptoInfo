@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	
+	<link rel="stylesheet" href="/stylesheets/animation.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.5/fullpage.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="/stylesheets/homepage.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+	
+	
+</head>
+<body>
+	<nav class="navbar navbar-default">
+	            	<div class="container-fluid">
+		                <div class="navbar-header"> 
+		                	<a class="navbar-brand" href="/crypto" id="navbrand">MyCrptoInfo</a>
+		                </div>
+
+		                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+		                    <span class="sr-only">Toggle navigation</span>
+		                    <span class="icon-bar"></span>
+		                    <span class="icon-bar"></span>
+		                    <span class="icon-bar"></span>
+		                </button>
+		                
+
+		                <div class="collapse navbar-collapse"  id="bs-example-navbar-collapse-1">
+		                    <ul class="nav navbar-nav navbar-right">
+		                    	<li>
+                            		<a href="/"><%= __('Homepage')%></a>
+                        		</li>
+
+		                    	<li>
+		                            <a href="/crypto"><%= __('Currency') %> </a>
+		                        </li>
+
+		                        <!--<li>
+		                            <a href="#"><%= __('Exchange Rate') %> </a>
+		                        </li>-->
+
+		                        <!--<li>
+		                            <a href="#"><%= __('Market') %></a>
+		                        </li>-->
+
+		                        <!--<li>
+		                            <a href="#"><%= __('About me') %></a>
+		                        </li>-->
+
+		                        <li class="nav-item dropdown">
+	                            		<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= __('Language') %><span class="caret"></span>
+	                            		</a>
+	                            	<ul class="dropdown-menu">
+		                                <li>
+		                                    <a href="/change-lang/en"><%= __('English') %><span>-EN</span><span class="flag-icon flag-icon-vn"></span></a>
+		                                </li>
+
+		                                <li role="separator" class="divider"></li>
+
+		                                <li>
+		                                    <a href="/change-lang/vi"><%= __('Vietnamese') %><span>-VI</span></a>
+		                                </li>
+	                            	</ul>
+                        		</li>
+
+		                    </ul>
+		                </div>       
+		            </div>
+		        </nav>
+		        <div class="space">
+		        	
+		        </div>
+	<div id="fullPage">
+		<div class="section">
+			<section>
+			    
+
+		        <div id="quote">
+		        	<p id="quote_highlight" class="text-focus-in">“Bitcoin is a technological tour de force.”</p>
+		        	<p id="name_quote" class="text-focus-in"> – Bill Gates, the principal founder of Microsoft - </p>
+		        </div>
+		        		
+
+		        <div id=logo>
+		        	<img src="../image/logo.png" id="logo_icon">
+		        	<p id="logo_name">MyCryptoInfo</p>
+		        </div>
+		        		
+		        	
+		        <div id="image_home">
+		        	<img src="../image/crypto4.png">
+		        </div>
+		   
+				<svg version="1.1" id="curve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+				 viewBox="0 0 1400 300" enable-background="new 0 0 1400 300" xml:space="preserve">
+				<path stroke="#000000" stroke-miterlimit="10" d="M-110.996,265.951c0-127.277,582.818-63.566,582.818-63.566
+					l321.993,47.287c0,0,710.523,115.505,710.523-36.672v97.333L-110.996,313"/>
+				</svg>
+			</section>
+		</div>
+		
+		<div class="section">
+			<section class="sec2">
+
+				<div id="image_section2">
+					<img src="../image/coin1.png" id="crypto">
+				</div>
+
+				<div id="text_section2">
+					<p><%= __('The Latest Cryptocurrency Updates') %></p>
+				</div>
+
+				<div id="button_section2">
+					<button>Not available</button>
+				</div>
+
+				<svg version="1.1" id="curve1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+				 viewBox="0 0 1400 300" enable-background="new 0 0 1400 300" xml:space="preserve">
+				<path stroke="#000000" stroke-miterlimit="10" d="M-110.996,265.951c0-127.277,582.818-63.566,582.818-63.566
+					l321.993,47.287c0,0,710.523,115.505,710.523-36.672v97.333L-110.996,313"/>
+				</svg>
+			</section>
+		</div>
+		
+		<div class="section">
+			<section class="sec3">
+
+				<div id="image_section3">
+					<img src="../image/market4.png">
+				</div>
+
+				<div id="text_section3">
+					<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam</p>
+				</div>
+
+				<div id="button_section3">
+					<button>Not available</button>
+				</div>
+			</section>		
+		</div>	
+
+
+		<div class="section fp-auto-height" id="section3">
+      		<div id="footer1">
+      			<div id="part1">
+      				<div id="navigate_text">
+      					<p>Navigate</p>
+      				</div>
+      				<div id="navigate_list">
+      					<ul style="list-style-type:none;">
+  							<li><a href="#">About me</a></li>
+							<li><a href="#">Homepage</a></li>
+							<li><a href="#">Currencies</a></li>
+							<li><a href="#">Market</a></li>
+						</ul>
+      				</div>
+      			</div>
+      			<div id="part2">
+      				<div id="contact_text">
+      					<p>Connect With Me!</p>
+      				</div>
+      				<div id="contact_icon">
+      					<img src="../image/Facebook-128.png">
+      					<img src="../image/Globe-128.png">
+      					<img src="../image/LinkedIn-128.png">
+      					<img src="../image/Message-Mail-128.png">
+      				</div>
+      			</div>
+      		</div>      		
+  		</div>
+
+  		<div class="section fp-auto-height" id="section4">
+      		<div id="footer2">
+      			<p>&#169; 2019 Hung Cuong Pham. All Rights Reserved.</p>
+      		</div>      		
+  		</div>
+	
+
+
+	</div>
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.5/fullpage.min.js"></script>
+	<script>
+		new fullpage('#fullPage',{
+			navigation:true,
+			navigationTooltips:['Home',"Currencies", "Market"],
+			showActiveTooltip:true,
+			autoScrolling:true,
+			scrollHorizontally: true
+		})
+	</script>
+</body>
+</html>
+
+
+
+
